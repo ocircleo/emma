@@ -4,4 +4,50 @@
     position: sticky;
     top: 0;
     height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.clear-cart{
+    padding: 10px 0;
+    border-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: orangered;
+    transition: .3s;
+    text-transform: capitalize;
+    color: white;
+    font-weight: bold;
+}
+.checkout:hover{
+    background-color: tomato
+    ;
+}
+.checkout:active{
+    transform: scale(1.2);
+}
+.checkout{
+    padding: 10px 0;
+    border-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: orangered;
+    transition: .3s;
+    text-transform: capitalize;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+.clear-cart:hover{
+    background-color: tomato
+    ;
+}
+.clear-cart:active{
+    transform: scale(1.2);
+}
+.checkout a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
 }
