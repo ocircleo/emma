@@ -1,9 +1,13 @@
 import React, { useContext, useState } from 'react';
 import './login.css'
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import '../../assets/google.svg'
 import { authContext } from '../provider/Provider';
 const Login = () => {
+    const navigate = useNavigate();
+    const loaction = useLocation()
+    console.log(loaction)
+    const from = loaction.state?.from.pathname || '/'
     const [showPassword, setShowPassword] = useState(false)
     const { loginWithEmail } = useContext(authContext);
     const showPass = () => {
@@ -15,7 +19,7 @@ const Login = () => {
         let password = document.getElementById('password')
         loginWithEmail(email.value, password.value)
             .then(user => {
-                console.log(user.user)
+                navigate(from, {replace:true});
             }).catch(err => console.log(err.code))
 
     }
