@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 import app from '../../utilities/app_config.js'
 export const authContext = createContext(null);
 const Provider = ({ children }) => {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [user, setUser] = useState(null);
     const auth = getAuth(app);
     const createEmailAcount = (email, password) => {
@@ -18,7 +18,7 @@ const Provider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-            setLoading(!loading);
+            setLoading(true);
         })
         return () => {
             unsubscribe()
