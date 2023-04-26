@@ -16,6 +16,7 @@ import Cartproductloader from './loader/Cartproductloader';
 import Register from './components/register/Register';
 import Provider from './components/provider/Provider';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
+import Acount from './components/acount/Acount';
 
 const router = createBrowserRouter([
   {
@@ -24,9 +25,10 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <Shop></Shop> },
       { path: 'orders', element: <Order></Order>, loader: Cartproductloader },
-      { path: 'inventory', element: <PrivateRoute><Inventory></Inventory></PrivateRoute> },
+      { path: 'inventory', element: <Inventory></Inventory> },
       { path: 'login', element: <Login></Login> },
-      { path: 'register', element: <Register></Register> }
+      { path: 'register', element: <Register></Register> },
+      {path:'acount',element:<PrivateRoute><Acount></Acount></PrivateRoute>}
     ]
   },
 ]);

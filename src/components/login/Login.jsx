@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './login.css'
 import { Link } from 'react-router-dom';
 import '../../assets/google.svg'
+import { authContext } from '../provider/Provider';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
+    const { loginWithEmail } = useContext(authContext);
     const showPass = () => {
         setShowPassword(!showPassword)
     }
+    const emailLogin = (e) => {
+        e.preventDefault()
+        let email = document.getElementById('email')
+        let password = document.getElementById('password')
+        loginWithEmail(email.value, password.value)
+            .then(user => {
+                console.log(user.user)
+            }).catch(err => console.log(err.code))
+
+    }
+
     return (
         <div className='form-container'>
             <h2>Login</h2>
-            <form onSubmit={''} className='form'>
+            <form onSubmit={emailLogin} className='form'>
                 <label htmlFor="email">Email</label>
                 <input type="email" name="email" id="email" className='form-placeholder' placeholder='enter your email' />
                 <label htmlFor="password">Password</label>
